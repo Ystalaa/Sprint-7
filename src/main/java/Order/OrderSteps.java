@@ -1,9 +1,9 @@
-package Model;
+package Order;
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
-import static Client.CourierClient.*;
+import static Constant.ScooterApiEndpoints.*;
 import static io.restassured.RestAssured.given;
 
 public class OrderSteps {
@@ -32,8 +32,8 @@ public class OrderSteps {
     }
 
     @Step("Отмена заказа")
-    public ValidatableResponse cancelOrder(int track) {
-        return requestSpec()
+    public void cancelOrder(int track) {
+        requestSpec()
                 .body(track)
                 .when()
                 .put(ORDER_PUT_CANCEL)

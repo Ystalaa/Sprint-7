@@ -1,26 +1,26 @@
 package OrderTest;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import Model.OrderModel;
-import Model.OrderSteps;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import Order.OrderModel;
+import Order.OrderSteps;
 import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 
 @RunWith(Parameterized.class)
-public class CreateOrderTest {
+public class OrderParamTest {
     private final List<String> colour;
     private int track;
     private OrderSteps orderSteps;
 
-    public CreateOrderTest(List<String> colour) {
+    public OrderParamTest(List<String> colour) {
         this.colour = colour;
     }
 
@@ -40,15 +40,15 @@ public class CreateOrderTest {
     }
 
     @After
-    @Step("Отменить тестовый заказ.")
-    public void CancelTestOrder() {
+    @Step("Отменить тестовый заказ")
+    public void cancelTestOrder() {
         orderSteps.cancelOrder(track);
     }
 
     @Test
-    @DisplayName("Размещение заказа с самокатами (разных цветов)")
-    @Description("Проверка размещения заказа с самокатами (разных цветов)")
-    public void OrderingWithScootersInDifferentColors() {
+    @DisplayName("Размещение заказа с самокатами разных цветов")
+    @Description("Проверяем корректность размещения заказа с самокатами разных цветов")
+    public void orderingWithScootersInDifferentColors() {
         OrderModel orderModel = new OrderModel(colour);
         ValidatableResponse responseCreateOrder = orderSteps.createNewOrder(orderModel);
         track = responseCreateOrder.extract().path("track");

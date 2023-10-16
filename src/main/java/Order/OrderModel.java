@@ -1,4 +1,4 @@
-package Model;
+package Order;
 
 import java.util.List;
 

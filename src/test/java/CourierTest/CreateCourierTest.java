@@ -1,5 +1,5 @@
 package CourierTest;
-import Model.*;
+import Courier.*;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class CreateCourierTest {
-    protected final CourierRandom courierRandomizer = new CourierRandom();
+    protected final CourierRandom courierRandom = new CourierRandom();
     int courierId;
     private CourierSteps courierSteps;
     private CourierModel courierModel;
@@ -19,7 +19,7 @@ public class CreateCourierTest {
     @Step("Создание тестовых данных курьера")
     public void setUp() {
         courierSteps = new CourierSteps();
-        courierModel = courierRandomizer.createNewRandomCourier();
+        courierModel = courierRandom.createNewRandomCourier();
         courierAssert = new CourierAssert();
     }
 
@@ -28,6 +28,7 @@ public class CreateCourierTest {
     public void deleteCourier() {
         if (courierId != 0) {
             courierSteps.deleteCourier(courierId);
+            courierId = 0;
         }
     }
 

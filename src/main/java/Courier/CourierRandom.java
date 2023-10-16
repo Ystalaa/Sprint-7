@@ -1,4 +1,4 @@
-package Model;
+package Courier;
 import com.github.javafaker.Faker;
 import io.qameta.allure.Step;
 public class CourierRandom {

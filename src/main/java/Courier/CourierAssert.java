@@ -1,4 +1,4 @@
-package Model;
+package Courier;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.greaterThan;
@@ -29,8 +29,8 @@ public class CourierAssert {
     }
 
     @Step("Проверка получения ID при логине с валидными данными")
-    public int loginCourierOk(ValidatableResponse response) {
-        return response.assertThat()
+    public void loginCourierOk(ValidatableResponse response) {
+        response.assertThat()
                 .statusCode(200)
                 .body("id", greaterThan(0))
                 .extract()
