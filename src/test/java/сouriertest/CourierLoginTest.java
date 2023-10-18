@@ -1,5 +1,5 @@
 package CourierTest;
-import Courier.*;
+import courier.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
