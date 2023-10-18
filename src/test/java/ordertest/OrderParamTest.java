@@ -1,15 +1,15 @@
-package OrderTest;
+package ordertest;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
+import order.OrderModel;
+import order.OrderSteps;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import Order.OrderModel;
-import Order.OrderSteps;
 import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -40,15 +40,15 @@ public class OrderParamTest {
     }
 
     @After
-    @Step("Отменить тестовый заказ")
-    public void cancelTestOrder() {
+    @Step("Cancel test order")
+    public void CancelTestOrder() {
         orderSteps.cancelOrder(track);
     }
 
     @Test
     @DisplayName("Размещение заказа с самокатами разных цветов")
     @Description("Проверяем корректность размещения заказа с самокатами разных цветов")
-    public void orderingWithScootersInDifferentColors() {
+    public void OrderingWithScootersInDifferentColors() {
         OrderModel orderModel = new OrderModel(colour);
         ValidatableResponse responseCreateOrder = orderSteps.createNewOrder(orderModel);
         track = responseCreateOrder.extract().path("track");

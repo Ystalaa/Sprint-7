@@ -1,5 +1,4 @@
-package Order;
-
+package order;
 import java.util.List;
 
 public class OrderModel {
@@ -17,14 +16,14 @@ public class OrderModel {
     }
 
     public OrderModel(List<String> colour) {
-        this.firstName = "Naruto";
-        this.lastName = "Uzumaki";
-        this.address = "Kanoha, 142 apt.";
-        this.metroStation = "1";
-        this.phone = "+7 800 355 35 35";
-        this.rentTime = "5";
-        this.deliveryDate = "2020-06-06";
-        this.comment = "Saske, come back to Kanoha.";
+        this.firstName = "Chuck";
+        this.lastName = "Norris";
+        this.address = "LowKick str., 69";
+        this.metroStation = "ChuckStation";
+        this.phone = "+1696661315";
+        this.rentTime = "7";
+        this.deliveryDate = "2023-03-23";
+        this.comment = "Chuck Norris writes code that optimizes itself.";
         this.colour = colour;
     }
 

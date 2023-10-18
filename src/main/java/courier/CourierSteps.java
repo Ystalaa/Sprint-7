@@ -1,10 +1,11 @@
-package Courier;
+package courier;
 import io.qameta.allure.Step;
-import static Constant.ScooterApiEndpoints.*;
-import static io.restassured.RestAssured.given;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+
+import static constant.ScooterApiEndpoints.*;
+import static io.restassured.RestAssured.given;
 
 public class CourierSteps {
 
@@ -33,8 +34,8 @@ public class CourierSteps {
     }
 
     @Step("Удаление курьера")
-    public void deleteCourier(int courierId) {
-        requestSpec()
+    public ValidatableResponse deleteCourier(int courierId) {
+        return requestSpec()
                 .when()
                 .delete(COURIER_DELETE + courierId)
                 .then();

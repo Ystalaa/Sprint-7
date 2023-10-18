@@ -1,4 +1,4 @@
-package CourierTest;
+package сouriertest;
 import courier.*;
 import org.junit.After;
 import org.junit.Before;
@@ -9,7 +9,7 @@ import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 
 public class CourierLoginTest {
-    private final CourierRandom courierRandom = new CourierRandom();
+    private final CourierRandomizer courierRandom = new CourierRandomizer();
     private CourierAssert courierAssert;
     private int courierID;
     private CourierCreds courierCreds;
@@ -67,7 +67,7 @@ public class CourierLoginTest {
     @DisplayName("Логин курьера c невалидным логином")
     @Description("Проверяем, что курьер не может войти в систему с ранее не зарегистрированным логином")
     public void courierLoginErrorAccountNotFound() {
-        CourierCreds courierCredsErrorAccountNotFound = new CourierCreds(CourierRandom.NEW_LOGIN_FAKED, courierModel.getPassword());
+        CourierCreds courierCredsErrorAccountNotFound = new CourierCreds(CourierRandomizer.NEW_LOGIN_FAKED, courierModel.getPassword());
         ValidatableResponse responseLoginErrorMessage = courierSteps.loginCourier(courierCredsErrorAccountNotFound);
         courierAssert.loginCourierErrorAccountNotFound(responseLoginErrorMessage);
     }
