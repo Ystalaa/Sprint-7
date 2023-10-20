@@ -26,10 +26,7 @@ public class CreateCourierTest {
     @After
     @Step("Удаление тестовых данных")
     public void deleteCourier() {
-        if (courierId != 0) {
-            courierSteps.deleteCourier(courierId);
-            courierId = 0;
-        }
+        courierSteps.deleteCourier(courierId);
     }
 
     @Test
