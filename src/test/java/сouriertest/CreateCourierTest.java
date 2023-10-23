@@ -10,7 +10,7 @@ import org.junit.Test;
 
 public class CreateCourierTest {
     protected final CourierRandomizer courierRandom = new CourierRandomizer();
-    int courierId;
+    protected int courierId;
     private CourierSteps courierSteps;
     private CourierModel courierModel;
     private CourierAssert courierAssert;
@@ -74,5 +74,7 @@ public class CreateCourierTest {
         courierSteps.createCourier(courierModel);
         ValidatableResponse responseCreateCourier = courierSteps.createCourier(courierModel);
         courierAssert.createCourierSameLoginError(responseCreateCourier);
+        CourierCreds courierCreds = CourierCreds.from(courierModel);
+        courierId = courierSteps.loginCourier(courierCreds).extract().path("id");
     }
 }
